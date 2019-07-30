@@ -34,9 +34,7 @@ public class AuthController implements AuthApi {
     public Result<Boolean> checkIgnore(AuthBo authBo) {
         Result<Boolean> result = null;
         try {
-            Department form = Assembler.assemble(Department.class, entity);
-            IPage<Department> model = logic.page(form, current, size);
-            result = Result.SUCCESS(Assembler.iPageAssemble(DepartmentBo.class, model));
+            return userApi.checkIgnore(authBo);
         }catch (Exception ex) {
             log.warn(ex.getMessage());
             result = Result.FAILED();
@@ -45,13 +43,11 @@ public class AuthController implements AuthApi {
     }
 
     @Override
-    @PostMapping(value = "/checkPermission", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @PostMapping(value = "/hasPermission", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public Result<Boolean> hasPermission(AuthBo authBo) {
-        Result<IPage<DepartmentBo>> result = null;
+        Result<Boolean> result = null;
         try {
-            Department form = Assembler.assemble(Department.class, entity);
-            IPage<Department> model = logic.page(form, current, size);
-            result = Result.SUCCESS(Assembler.iPageAssemble(DepartmentBo.class, model));
+            return userApi.hasPermission(authBo);
         }catch (Exception ex) {
             log.warn(ex.getMessage());
             result = Result.FAILED();
@@ -62,11 +58,9 @@ public class AuthController implements AuthApi {
     @Override
     @PostMapping(value = "/getJwt", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public Result<Jwt> getJwt(AuthBo authBo) {
-        Result<IPage<DepartmentBo>> result = null;
+        Result<Jwt> result = null;
         try {
-            Department form = Assembler.assemble(Department.class, entity);
-            IPage<Department> model = logic.page(form, current, size);
-            result = Result.SUCCESS(Assembler.iPageAssemble(DepartmentBo.class, model));
+            return userApi.getJwt(authBo);
         }catch (Exception ex) {
             log.warn(ex.getMessage());
             result = Result.FAILED();

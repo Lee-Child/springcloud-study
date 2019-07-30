@@ -39,10 +39,6 @@ public class AccessGatewayFilter implements GlobalFilter {
     /**
      * 1.首先网关检查token是否有效，无效直接返回401，不调用签权服务
      * 2.调用签权服务器看是否对该请求有权限，有权限进入下一个filter，没有权限返回401
-     *
-     * @param exchange
-     * @param chain
-     * @return
      */
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
@@ -76,8 +72,6 @@ public class AccessGatewayFilter implements GlobalFilter {
 
     /**
      * 网关拒绝，返回401
-     *
-     * @param
      */
     private Mono<Void> unauthorized(ServerWebExchange serverWebExchange) {
         serverWebExchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);

@@ -17,10 +17,5 @@
     </modules>
 
     <dependencies>
-        <dependency>
-            <groupId>com.lwc.springcloud</groupId>
-            <artifactId>common-base</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
     </dependencies>
 </project>

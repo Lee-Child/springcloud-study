@@ -15,9 +15,9 @@ public interface AuthApi {
     @PostMapping(value = "/checkIgnore", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     Result<Boolean> checkIgnore(@RequestBody AuthBo authBo);
 
-    @PostMapping(value = "/checkPermission/{id}", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @PostMapping(value = "/hasPermission", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     Result<Boolean> hasPermission(@RequestBody AuthBo authBo);
 
-    @PostMapping(value = "/query/{id}", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @PostMapping(value = "/getJwt", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     Result<Jwt> getJwt(@RequestBody AuthBo authBo);
 }
