@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lwc.user.mapper.PositionMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lwc.user.entity.Position">
+        <id column="id" property="id" />
+        <result column="position_name" property="positionName" />
+        <result column="department_id" property="departmentId" />
+        <result column="create_at" property="createAt" />
+        <result column="create_by" property="createBy" />
+        <result column="update_at" property="updateAt" />
+        <result column="update_by" property="updateBy" />
+        <result column="delete_flag" property="deleteFlag" />
+        <result column="version" property="version" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, position_name, department_id, create_at, create_by, update_at, update_by, delete_flag, version
+    </sql>
+
+
+    <delete id="purge" parameterType="java.lang.Long">
+        delete from position
+        where 1 = 1
+        and id = #{id}
+    </delete>
+
+    <delete id="purgeByIds" parameterType="java.util.List">
+        delete from position
+        where 1 = 1
+        and id in
+        <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+</mapper>
