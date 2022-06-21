@@ -24,7 +24,7 @@
         <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
         <spring-boot.version>2.0.3.RELEASE</spring-boot.version>
         <mybatis-plus-version>3.1.2</mybatis-plus-version>
-        <mysql-connector-version>8.0.16</mysql-connector-version>
+        <mysql-connector-version>8.0.28</mysql-connector-version>
         <lombok-version>1.16.22</lombok-version>
         <txlcn-version>5.0.2.RELEASE</txlcn-version>
         <storm-version>2.0.0</storm-version>
